@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<body>
+        <!-- <style>
+                .pos-absolute {
+                    position: absolute;
+                }
+        
+                .player__video {
+                    object-fit: contain;
+                    bottom: 0;
+                    height: calc(100% + 2px);
+                    left: -1px;
+                    top: -1px;
+                    background: #000;
+                }
+        
+                .full-width {
+                    width: 100%!important;
+                }
+            </style> -->
+    <!-- <div id='vid' tabindex='-1' data-fullscreen='false' data-video='true' data-showinfo='true' data-branding='true' data-ended
+        'false'>
+        <div width='100%'>
+            <video class='player__video pos-absolute .full-width' id='videlem' src="file://C:\Users\donchan.REDMOND\Downloads\IMG_5957.mp4"
+                type="video/mp4" preload="auto" autoplay> </video>
+        </div>
+        <div>
+            <button id='fsb'>Fullscreen</button>
+        </div>
+    </div> -->
+
+    <script>
+        // var button = document.getElementById('fsb');
+        // var video = document.getElementById('videlem');
+        // video.addEventListener('loadedmetadata', function (e) {
+        //     var video_2 = document.getElementById('videlem');
+        //     if (video_2.webkitSupportsFullscreen) {
+        //         console.log("Video fs Enabled!");
+        //     } else {
+        //         console.log("Video fs Disabled!");
+        //     }
+        // }, false);
+
+        // if (video.webkitSupportsFullscreen) {
+        //     console.log("Video fs Enabled!");
+        // } else {
+        //     console.log("Video fs Disabled!");
+        // }
+
+        // create video element with the controls.
+        console.log('start');
+        var div = document.createElement('DIV');
+        div.setAttribute('id', 'vid');
+        var div_2 = document.createElement('DIV');
+        div.appendChild(div_2);
+        var div_3 = document.createElement('DIV');
+        div.appendChild(div_3);
+
+        var vid = document.createElement('VIDEO');
+        vid.setAttribute('id', 'videlem');
+        vid.setAttribute('src', "WP_20170918_12_28_30_Pro.mp4");
+        vid.setAttribute('type', 'video/mp4');
+        vid.setAttribute('preload', 'auto');
+        vid.setAttribute('autoplay', true);
+        div_2.appendChild(vid);
+
+        var button = document.createElement('BUTTON');
+        button.setAttribute('id', 'fsb');
+        button.textContent = 'Fullscreen';
+        div_3.appendChild(button);
+
+        document.body.appendChild(div);
+        console.log('end');
+    </script>
+</body>
+
+</html>
