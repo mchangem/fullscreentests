@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<!--
+This test case verifies fullscreen functionality when the parent of the fullscreened element is independently rendered.
+-->
+
+<html onmouseup="RunTests()">
+<head>
+    <script>
+        function RunTests() {
+            console.log(window["fselem"].contentWindow.document.documentElement);
+            window["fselem"].contentWindow.document.documentElement.webkitRequestFullscreen();
+        }
+    </script>
+    <style>
+        #headersection {
+            background: #2f73c6;
+            min-height: 78px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 2;
+            overflow: visible;
+        }
+        #imgarticle {
+            background: #000000;
+            width: 100%;
+            position: relative;
+            display:block;
+            z-index: 1;
+        }
+        #imgcontainer {
+            max-width: 1050px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        #imgDiv {
+            float: left;
+            width: 72.47;
+            height: 428px;
+        }
+        #fselem {
+            padding: 50px;
+            width:300px;
+            height:200px;
+            border: 5px dashed #654321;
+        }
+    </style>
+</head>
+<body style="background-color: #f9f9f9; margin:0px; padding:0px; box-sizing:border-box;">
+    <section id="headersection"></section>
+    <article id="imgarticle">
+        <article id="imgcontainer">
+            <div id="imgDiv">
+                <iframe id="fselem" src="C:\Users\donchan.REDMOND\Documents\fullscreentests\fs_video_allowfullscreen\video_allowfullscreen.html" allowfullscreen>
+                </iframe>                     
+            </div>
+        </article>
+    </article>
+</body>
+</html>
