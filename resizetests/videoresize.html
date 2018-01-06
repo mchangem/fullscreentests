@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body onresize="countResize()">
+    <video src='track-model-video1.mp4' controls id='vid'>
+    </video>
+    <div>
+        <button id='eventbutton'>Click Me!</button>            
+    </div>
+    <!-- <h2 id='resizecallbackcnt'>On Resize Calls Count</h2> -->
+
+    <script>
+        var btn = document.getElementById('eventbutton');
+        btn.onclick = function()
+        {
+            var frm = document.getElementById('vid');
+            frm.webkitRequestFullscreen();
+        }
+
+        var resizeCnt = 0;
+        function countResize()
+        {
+            resizeCnt++;
+            console.log('this is how many resizes happened so far: ' + resizeCnt);
+        }
+    </script>
+</body>
+</html>

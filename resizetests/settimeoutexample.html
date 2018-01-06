@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <button id='btn'>ABC</button>
+    <script>
+        var btn = document.getElementById('btn');
+
+        btn.onclick = function()
+        {
+            setupTimeout();
+        }
+
+        function setupTimeout()
+        {
+            setTimeout(function () {
+                alert('Hi!');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
