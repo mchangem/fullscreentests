@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function doFS() {
+            console.log('hello!');
+            var fselem = document.getElementsByClassName('container')[0];
+            console.log(fselem);
+            if (fselem.requestFullscreen) {
+                fselem.requestFullScreen();
+                console.log('regularfs');
+            }
+            else if (fselem.webkitRequestFullscreen) {
+                fselem.webkitRequestFullScreen();
+                console.log('webkitfs');
+            }
+            else if (fselem.mozRequestFullScreen) {
+                fselem.mozRequestFullScreen();
+                console.log('firefox fs');
+            }
+        }
+    </script>
+    <style>
+        button {
+            display: inline-block
+        }
+        .video {
+            width:100%;
+            height:100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .container {
+            height: calc(100% - 31px);
+            top: 0;
+            left: 0;
+            width: 100%;
+            position: absolute;
+        }
+        .controls {
+            position: absolute;
+            bottom:-31px;
+            left: 0px;
+            right: 0px
+        }
+        .toplevelcontainer {
+            height: 320px;
+            width: 480px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class='toplevelcontainer'>
+        <div class='container'>
+            <video class='video' src='../media/track-model-video1.mp4'></video>
+            <div class='controls'>
+                <button>Play</button>
+                <button class='fsbtn' onclick="doFS()">Fullscreen</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -15,8 +15,11 @@
         function setupTimeout()
         {
             setTimeout(function () {
-                alert('Hi!');
-            }, 3000);
+                // btn.webkitRequestFullscreen();
+                setTimeout(function () {
+                    btn.webkitRequestFullscreen();
+                }, 500);
+            }, 500);
         }
     </script>
 </body>
