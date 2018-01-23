@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+    span {
+        display:none
+    }
+</style>
+
+<div style="width:100px; background-color:#000">
+    <span id='spannnn'>NO VIDEO</span>
+</div>
+<p>
+    ABCDEFG
+</p>
+<div>
+    <button id='clickyyy'>Do Fullscreen!</button>
+</div>
+<!-- <button type="button" id="clickybutton">Click Me!</button> -->
+<script>
+    var video = document.getElementById('clickyyy');
+    var span = document.getElementById('spannnn');
+    video.onclick = function(e) {
+        console.log("WHAAT");
+        // alert("hello world!");
+        span.webkitRequestFullscreen();
+    };
+</script>
+</body>
+</html>
