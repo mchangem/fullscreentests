@@ -2,27 +2,26 @@
 <html>
 <body>
 <style>
-    span {
+    .dispNonespan {
         display:none
     }
 </style>
 
 <div style="width:100px; background-color:#000">
-    <span id='spannnn'>NO VIDEO</span>
+    <span class='dispNonespan'>NO VIDEO</span>
 </div>
 <p>
-    ABCDEFG
+    ABCDEFG (Filler for Page)
 </p>
 <div>
-    <button id='clickyyy'>Do Fullscreen!</button>
+    <button id='fsbtn'>Do Fullscreen!</button>
 </div>
-<!-- <button type="button" id="clickybutton">Click Me!</button> -->
+
 <script>
-    var video = document.getElementById('clickyyy');
-    var span = document.getElementById('spannnn');
-    video.onclick = function(e) {
-        console.log("WHAAT");
-        // alert("hello world!");
+    var btn = document.getElementById('fsbtn');
+    var span = document.getElementsByClassName('dispNonespan')[0];
+    btn.onclick = function(e) {
+        // request fullscreen on the span.
         span.webkitRequestFullscreen();
     };
 </script>
