@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+    .dispNonespan {
+        visibility:hidden
+    }
+</style>
+
+<div style="width:100px; background-color:#000">
+    <span class='dispNonespan'>NO VIDEO</span>
+</div>
+<p>
+    ABCDEFG (Filler for Page)
+</p>
+<div>
+    <button id='fsbtn'>Do Fullscreen!</button>
+</div>
+
+<script>
+    var btn = document.getElementById('fsbtn');
+    var span = document.getElementsByClassName('dispNonespan')[0];
+    btn.onclick = function(e) {
+        // request fullscreen on the span.
+        span.webkitRequestFullscreen();
+    };
+</script>
+</body>
+</html>
