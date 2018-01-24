@@ -22,7 +22,15 @@
     var span = document.getElementsByClassName('dispNonespan')[0];
     btn.onclick = function(e) {
         // request fullscreen on the span.
-        span.webkitRequestFullscreen();
+        if (span.requestFullScreen) {
+            span.requestFullScreen();
+        }
+        else if (span.webkitRequestFullScreen) {
+            span.webkitRequestFullScreen();
+        }
+        else if (span.mozRequestFullScreen) {
+            span.mozRequestFullScreen();
+        }
     };
 </script>
 </body>
