@@ -84,6 +84,10 @@
         fsChangeHandler();
     }
 
+    document.mozfullscreenchange = function() {
+        fsChangeHandler();
+    }
+
     function fsChangeHandler() {
         if (inFS == false) {
             inFS = true;
