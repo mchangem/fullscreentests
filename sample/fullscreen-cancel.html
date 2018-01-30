@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fullscreen stucked</title>
+    </head>
+    <body>
+        <div id="test-element"></div>
+        <script>
+            enableFullscreenAPI(function() {
+                document.documentElement.webkitRequestFullscreen();
+                document.webkitCancelFullScreen();
+            });
+            
+            function enableFullscreenAPI(callbackFunc) {
+                // Create a dummy div element for the mouse to click on.
+                var divElement = document.createElement("div");
+                divElement.setAttribute("id", "dummyDiv");
+                divElement.innerHTML = "Click here to enable fullscreen.";
+                document.body.appendChild(divElement);
+
+                document.documentElement.onmouseup = function() {
+                    
+                    // Clean up.
+                    document.documentElement.onmouseup = null;
+                    document.body.removeChild(document.getElementById("dummyDiv"));
+
+                    callbackFunc();
+                };
+            }
+        </script>
+    </body>
+</html>
