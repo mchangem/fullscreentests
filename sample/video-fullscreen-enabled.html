@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html id="html1" onclick="clickHandler();">
+<head>
+    <title>Fullscreen Validation for display: none</title>
+    <script src="../../../resources/testharness.js"></script>
+    <script src="../../../resources/testharnessreport.js"></script>
+    <!-- Helper to interact with webdriver -->
+    <script src="../common/webdriver.js"></script>
+</head>
+<body>
+    <video id='noSrc'></video>
+    <video src='' id='attrSrc'></video>
+    <video id='elementSrc'><src></src></video>
+    <script>
+        // Append single character - DOMSubtreeModified with event listener
+        async_test(function (test) {
+            document.addEventListener("webkitfullscreenchange", test.step_func(function (ev) {
+                assert_true(document.webkitFullscreenEnabled, "Fullscreen must be enabled");
+                assert_equals(document.webkitFullscreenElement, document.body, "The fullscreen element must be the expected element");
+                document.webkitExitFullscreen();
+                test.done();
+            }), false);
+        }, "Display none fullscreen content doesn't crash");
+
+        function clickHandler() {
+            document.body.webkitRequestFullscreen();
+        }
+    </script>
+</body>
+</html>

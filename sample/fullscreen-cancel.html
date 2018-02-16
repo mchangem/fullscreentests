@@ -7,8 +7,22 @@
         <div id="test-element"></div>
         <script>
             enableFullscreenAPI(function() {
-                document.documentElement.webkitRequestFullscreen();
-                document.webkitCancelFullScreen();
+                if (document.documentElement.webkitRequestFullscreen) {
+                    document.documentElement.webkitRequestFullscreen();
+                }
+                else if (document.documentElement.mozRequestFullScreen) {
+                    document.documentElement.mozRequestFullScreen();
+                }
+
+                if (document.webkitCancelFullScreen) {
+                    console.log('cancel');
+                    document.webkitCancelFullScreen();
+                }
+                else if (document.mozCancelFullScreen) {
+                    console.log('cancel');
+                    document.mozCancelFullScreen();
+                }
+                
             });
             
             function enableFullscreenAPI(callbackFunc) {

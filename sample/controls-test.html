@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .volumeIcon {
+                background-image: url(https://player.hulu.com/site/dash/303140-site/img/site-s6ca547844b.png);
+                background-position-x: -4118px;
+                background-position-y: 0px;
+                cursor: pointer;
+                width: 36px;
+                height: 36px;
+                position: relative;
+                vertical-align: top;
+                float: left;
+            }
+            .ctrlDiv {
+                display: block;
+                background-color: slategray;
+                width: 780px;
+                height: 36px;
+                line-height: 22.1px;
+                bottom: 5px;
+                position: absolute;
+            }
+            .volumeBar {
+                display: block;
+                background-color: red;
+                width: 36px;
+                height: 0px;
+                margin-bottom: 5px;
+                position: absolute;
+                bottom: 38px;
+                /* transition: height 1s; */
+            }
+            .fsIcon {
+                background-image: url(https://player.hulu.com/site/dash/303140-site/img/site-s6ca547844b.png);
+                background-position-x: -560px;
+                background-position-y: 0px;
+                cursor: pointer;
+                width: 36px;
+                height: 36px;
+                margin-left: 7px;
+                position: relative;
+                vertical-align: top;
+                float: left;
+            }
+            .toolTips {
+                background-color: blue;
+                /* display: none; */
+                bottom: 79px;
+                line-height: 51px;
+                position: absolute;
+                text-align: center;
+                width: 780px;
+            }
+            .mainBar {
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='fsDiv'>
+            <div class='ctrlDiv'>
+                <div id='mainBar' style='display:none;'>
+                    <div class='volumeIcon'></div>   
+                    <div class='fsIcon'></div> 
+                </div>
+                <div class="toolTips" style="display:none;">TIP</div>
+                <div class='volumeBar'></div>
+            </div>
+        </div>
+        <script>
+            document.getElementsByClassName('volumeIcon')[0].addEventListener('mouseover', () => {
+                console.log('moused over!');
+                document.getElementsByClassName('volumeBar')[0].style.height = '108px';
+                document.getElementsByClassName('toolTips')[0].style.display = 'block';
+                
+            });
+            document.getElementsByClassName('volumeIcon')[0].addEventListener('mouseout', () => {
+                console.log('mouse exit!');
+                document.getElementsByClassName('volumeBar')[0].style.height = '0px';
+                document.getElementsByClassName('toolTips')[0].style.display = 'none';
+            });
+            document.getElementsByClassName('fsIcon')[0].addEventListener('click', () => {
+                document.getElementById('fsDiv').webkitRequestFullscreen();
+            });
+            document.getElementsByClassName('ctrlDiv')[0].addEventListener('mouseover', () => {
+                document.getElementById('mainBar').style.display = 'block';
+            });
+            document.getElementsByClassName('ctrlDiv')[0].addEventListener('mouseout', () => {
+                document.getElementById('mainBar').style.display = 'none';
+            });
+        </script>
+    </body>
+</html>

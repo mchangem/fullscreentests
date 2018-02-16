@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+</style>
+
+<div style="width:100px; background-color:#000">
+    <span class='dispNonespan'>NO VIDEO</span>
+</div>
+<p>
+    ABCDEFG (Filler for Page)
+</p>
+<div>
+    <button id='fsbtn'>Do Fullscreen!</button>
+</div>
+
+<script>
+    var btn = document.getElementById('fsbtn');
+    var span = document.getElementsByClassName('dispNonespan')[0];
+    btn.onclick = function(e) {
+        var index = 0;
+        while (index < 1000)
+        {
+            if (index % 2 == 0) {
+                // request fullscreen on the span.
+                if (span.requestFullScreen) {
+                    span.requestFullScreen();
+                }
+                else if (span.webkitRequestFullScreen) {
+                    span.webkitRequestFullScreen();
+                }
+                else if (span.mozRequestFullScreen) {
+                    span.mozRequestFullScreen();
+                }
+            }
+            else 
+            {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+                else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
+                else if (document.mozExitFullScreen) {
+                    document.mozExitFullScreen();
+                }
+            }
+            ++index;
+        }
+
+        
+        // setTimeout(function() {
+        //     window.open('simpletest.html', 'popup', 'width=400,height=200,scrollbars=yes');
+        //     // alert('hi');
+        // }, 1000);
+    };
+
+    document.onfullscreenchange = function() {
+        console.log('fullscreen changed!');
+    }
+    document.onwebkitfullscreenchange = function() {
+        console.log('fullscreen changed!');
+    }
+    document.onmozfullscreenchange = function() {
+        console.log('fullscreen changed!');
+    }
+</script>
+</body>
+</html>
